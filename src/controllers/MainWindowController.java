@@ -3,6 +3,7 @@ package controllers;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.ResourceBundle;
 
 import helpers.CSVwork;
@@ -21,6 +22,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import sql.DatabaseHandler;
 
 public class MainWindowController {
+    StringBuilder log = new StringBuilder();
     ArrayList<Info> data;
     private ObservableList<Info> tableList;
     private ObservableList<SimpleInfo> graphicList;
@@ -85,6 +87,12 @@ public class MainWindowController {
     private Button drawButton;
 
     @FXML
+    private Button saveButton;
+
+    @FXML
+    private Label resultLabel;
+
+    @FXML
     void initialize() {
 
         ObservableList<String> typeDataList = FXCollections.observableArrayList(
@@ -140,6 +148,8 @@ public class MainWindowController {
             graphicLineChart.getData().add(mnkSeries);
             graphicLineChart.getData().add(polynom2ndSeries);
             graphicLineChart.getData().add(exponentialSeries);
+
+            log.append("Draw graphics for " + comboBox.getValue() + " price and linear/unlinear regression at " + new Date().toString());
         });
 
         downloadButton.setOnAction(event -> {
@@ -163,10 +173,12 @@ public class MainWindowController {
             closeColumn.setCellValueFactory(new PropertyValueFactory<Info, Number>("closePrice"));
 
             infoTabView.setItems(tableList);
+            log.append("Data selected from " + dateFrom + " to " + dateTo + " at " + new Date().toString());
         });
-        /*
-        TODO:
-                    логи ( разобраться со связями) .
-        */
+
+        saveButton.setOnAction(event -> {
+            dbHandler.addLog(LoginWindowController.getCurrentUserLogin(), log.toString());
+            resultLabel.setText("Saved!");
+        });
     }
 }

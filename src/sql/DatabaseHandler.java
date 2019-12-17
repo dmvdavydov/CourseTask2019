@@ -1,10 +1,8 @@
 package sql;
 
 import controllers.User;
-import helpers.CSVwork;
 import helpers.Info;
 import helpers.SimpleInfo;
-import javafx.beans.Observable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -29,9 +27,9 @@ public class DatabaseHandler extends Configs {
 
     public void signUpUser(User user) {
         String insert = "INSERT INTO " + Const.USER_TABLE + " (" +
-                Const.USERS_FIRSTNAME + "," + Const.USERS_SECONDNAME + "," +
-                Const.USERS_EMAIL + "," + Const.USERS_LOGIN + "," +
-                Const.USERS_PASSWORD + ")" + "VALUES(?, ?, ?, ?, ?)";
+                Const.USER_FIRSTNAME + "," + Const.USER_SECONDNAME + "," +
+                Const.USER_EMAIL + "," + Const.USER_LOGIN + "," +
+                Const.USER_PASSWORD + ")" + "VALUES(?, ?, ?, ?, ?)";
 
         try {
             PreparedStatement prSt = getDbConnection().prepareStatement(insert);
@@ -54,7 +52,7 @@ public class DatabaseHandler extends Configs {
     public ResultSet getUser(User user) {
         ResultSet resSet = null;
         String select = "SELECT * FROM " + Const.USER_TABLE + " WHERE " +
-                Const.USERS_LOGIN + "=? AND " + Const.USERS_PASSWORD + " =?";
+                Const.USER_LOGIN + "=? AND " + Const.USER_PASSWORD + " =?";
 
         try {
             PreparedStatement prST = getDbConnection().prepareStatement(select);
@@ -148,6 +146,24 @@ public class DatabaseHandler extends Configs {
         } catch (Exception ex) {
             ex.getMessage();
             return null;
+        }
+    }
+
+    public void addLog(String login, String logInfo) {
+        String insert = "INSERT INTO " + Const.LOG_TABLE + "(" +
+                Const.LOG_INFO + " , " + Const.LOG_USER_LOGIN + ")" +
+                " VALUES(?,?);";
+
+        try {
+            PreparedStatement prSt = getDbConnection().prepareStatement(insert);
+            prSt.setString(1, logInfo);
+            prSt.setString(2, login);
+
+            prSt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
         }
     }
 }

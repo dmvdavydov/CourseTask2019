@@ -12,25 +12,20 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<TabPane fx:id="tabPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
-         prefHeight="690.0" prefWidth="910.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/11.0.1"
-         xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MainWindowController">
+<TabPane fx:id="tabPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="690.0" prefWidth="910.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MainWindowController">
     <tabs>
         <Tab text="Get data">
             <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                     <children>
-                        <DatePicker fx:id="datePicker1" layoutX="70.0" layoutY="114.0" prefHeight="26.0"
-                                    prefWidth="71.0"/>
-                        <DatePicker fx:id="datePicker2" layoutX="178.0" layoutY="114.0" prefHeight="26.0"
-                                    prefWidth="71.0"/>
-                        <Label layoutX="70.0" layoutY="52.0" prefHeight="37.0" prefWidth="247.0"
-                               text="Скачать данные с финама:"/>
-                        <Label layoutX="41.0" layoutY="118.0" text="с"/>
-                        <Label layoutX="151.0" layoutY="118.0" text="по"/>
-                        <Button fx:id="downloadButton" layoutX="99.0" layoutY="164.0" mnemonicParsing="false"
-                                prefHeight="30.0" prefWidth="104.0" text="Download"/>
+                        <DatePicker fx:id="datePicker1" layoutX="70.0" layoutY="114.0" prefHeight="26.0" prefWidth="71.0" />
+                        <DatePicker fx:id="datePicker2" layoutX="178.0" layoutY="114.0" prefHeight="26.0" prefWidth="71.0" />
+                        <Label layoutX="14.0" layoutY="67.0" prefHeight="38.0" prefWidth="495.0" text="Скачать данные с финама и выбрать период для отображения таблицы и графиков :" />
+                        <Label layoutX="41.0" layoutY="118.0" text="с" />
+                        <Label layoutX="151.0" layoutY="118.0" text="по" />
+                        <Button fx:id="downloadButton" layoutX="99.0" layoutY="164.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="104.0" text="Download" />
                     </children>
                 </AnchorPane>
             </content>
@@ -39,14 +34,13 @@
             <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="499.0" prefWidth="722.0">
                     <children>
-                        <TableView fx:id="infoTabView" layoutX="14.0" layoutY="14.0" prefHeight="642.0"
-                                   prefWidth="366.0">
+                        <TableView fx:id="infoTabView" layoutX="14.0" layoutY="14.0" prefHeight="642.0" prefWidth="366.0">
                             <columns>
-                                <TableColumn fx:id="dateColumn" prefWidth="75.0" text="Date"/>
-                                <TableColumn fx:id="openColumn" prefWidth="75.0" text="Open"/>
-                                <TableColumn fx:id="highColumn" prefWidth="75.0" text="High"/>
-                                <TableColumn fx:id="lowColumn" prefWidth="75.0" text="Low"/>
-                                <TableColumn fx:id="closeColumn" prefWidth="75.0" text="Close"/>
+                                <TableColumn fx:id="dateColumn" prefWidth="75.0" text="Date" />
+                                <TableColumn fx:id="openColumn" prefWidth="75.0" text="Open" />
+                                <TableColumn fx:id="highColumn" prefWidth="75.0" text="High" />
+                                <TableColumn fx:id="lowColumn" prefWidth="75.0" text="Low" />
+                                <TableColumn fx:id="closeColumn" prefWidth="75.0" text="Close" />
                             </columns>
                         </TableView>
                     </children>
@@ -57,20 +51,34 @@
             <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                     <children>
-                        <LineChart fx:id="graphicLineChart" layoutX="7.0" layoutY="6.0" prefHeight="418.0"
-                                   prefWidth="893.0">
+                        <LineChart fx:id="graphicLineChart" layoutX="7.0" layoutY="6.0" prefHeight="418.0" prefWidth="893.0">
                             <xAxis>
-                                <CategoryAxis side="BOTTOM" fx:id="xAxis"/>
+                                <CategoryAxis side="BOTTOM" fx:id="xAxis" />
                             </xAxis>
                             <yAxis>
-                                <NumberAxis fx:id="yAxis" side="LEFT"/>
+                                <NumberAxis fx:id="yAxis" side="LEFT" />
                             </yAxis>
                         </LineChart>
-                        <ComboBox fx:id="comboBox" layoutX="39.0" layoutY="424.0" prefWidth="150.0"/>
-                        <Button fx:id="drawButton" layoutX="88.0" layoutY="516.0" mnemonicParsing="false" text="Draw"/>
+                        <ComboBox fx:id="comboBox" layoutX="39.0" layoutY="424.0" prefWidth="150.0" />
+                        <Button fx:id="drawButton" layoutX="88.0" layoutY="516.0" mnemonicParsing="false" text="Draw" />
                     </children>
                 </AnchorPane>
             </content>
         </Tab>
+      <Tab text="Before leaving">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <Button fx:id="saveButton" layoutX="134.0" layoutY="70.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="114.0" text="Save">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+                  <Label layoutX="14.0" layoutY="67.0" prefHeight="47.0" prefWidth="106.0" text="Сохранить отчёт:" />
+                  <Label fx:id="resultLabel" layoutX="105.0" layoutY="137.0" prefHeight="18.0" prefWidth="142.0" />
+               </children>
+            </AnchorPane>
+        </content>
+      </Tab>
     </tabs>
 </TabPane>

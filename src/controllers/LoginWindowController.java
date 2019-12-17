@@ -17,6 +17,18 @@ import javafx.stage.Stage;
 import sql.DatabaseHandler;
 
 public class LoginWindowController {
+    private static String currentUserLogin;
+
+    public static String getCurrentUserLogin() {
+        return currentUserLogin;
+    }
+
+    private static String currentUserPassword;
+
+    public static String getCurrentUserPassword() {
+        return currentUserPassword;
+    }
+
 
     @FXML
     private ResourceBundle resources;
@@ -86,6 +98,9 @@ public class LoginWindowController {
         if (counter >= 1) {
             System.out.println("Success!");
             try {
+                currentUserLogin = loginText;
+                currentUserPassword = loginPassword;
+
                 FXMLLoader loader = new FXMLLoader();
                 loader.setLocation(getClass().getResource("/views/MainWindow.fxml"));
                 Parent root = loader.load();
