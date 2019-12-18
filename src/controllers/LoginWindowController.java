@@ -73,7 +73,7 @@ public class LoginWindowController {
 
             Parent root = loader.getRoot();
             Stage stage = new Stage();
-            stage.setTitle("Окно регистрации ");
+            stage.setTitle("Sign up window ");
             stage.setScene(new Scene(root));
             stage.showAndWait();
         });
@@ -106,7 +106,7 @@ public class LoginWindowController {
                 loader.setLocation(getClass().getResource("/views/MainWindow.fxml"));
                 Parent root = loader.load();
                 Stage stage = new Stage();
-                stage.setTitle("Рабочее окно ");
+                stage.setTitle("Main window ");
                 stage.setScene(new Scene(root, 910, 690));
                 stage.show();
             } catch (IOException e) {

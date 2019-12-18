@@ -14,15 +14,15 @@
                 <Font size="30.0" />
             </font>
         </Label>
-        <TextField fx:id="nameField" layoutX="14.0" layoutY="101.0" promptText="Имя" />
-        <TextField fx:id="secondNameField" layoutX="212.0" layoutY="101.0" promptText="Фамилия" />
+        <TextField fx:id="nameField" layoutX="14.0" layoutY="101.0" promptText="Firstname" />
+        <TextField fx:id="secondNameField" layoutX="212.0" layoutY="101.0" promptText="Secondname" />
         <TextField fx:id="emailField" layoutX="14.0" layoutY="165.0" promptText="e-mail" />
-        <PasswordField fx:id="passwordField" layoutX="14.0" layoutY="298.0" promptText="Пароль" />
-        <Label layoutX="15.0" layoutY="67.0" prefHeight="18.0" prefWidth="257.0" text="Введите имя и фамилию" />
-        <Label layoutX="15.0" layoutY="135.0" prefHeight="18.0" prefWidth="257.0" text="Введите свою электронную почту" />
-        <Label layoutX="15.0" layoutY="264.0" prefHeight="18.0" prefWidth="257.0" text="Придумайте пароль" />
-        <Label layoutX="15.0" layoutY="200.0" prefHeight="18.0" prefWidth="257.0" text="Придумайте логин" />
-        <TextField fx:id="loginField" layoutX="14.0" layoutY="227.0" promptText="Логин" />
+        <PasswordField fx:id="passwordField" layoutX="14.0" layoutY="298.0" promptText="Password" />
+        <Label layoutX="15.0" layoutY="67.0" prefHeight="18.0" prefWidth="257.0" text="Enter first and last name:" />
+        <Label layoutX="15.0" layoutY="135.0" prefHeight="18.0" prefWidth="257.0" text="Enter e-mail:" />
+        <Label layoutX="15.0" layoutY="264.0" prefHeight="18.0" prefWidth="257.0" text="Enter password:" />
+        <Label layoutX="15.0" layoutY="200.0" prefHeight="18.0" prefWidth="257.0" text="Enter login:" />
+        <TextField fx:id="loginField" layoutX="14.0" layoutY="227.0" promptText="Login" />
         <Button fx:id="nextButton" layoutX="423.0" layoutY="311.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="114.0" style="-fx-background-color: aqua;" text="Finish">
             <font>
                 <Font size="20.0" />
