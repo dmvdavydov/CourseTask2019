@@ -1,6 +1,6 @@
 package sql;
 
-import controllers.User;
+import helpers.User;
 import helpers.Info;
 import helpers.SimpleInfo;
 import javafx.collections.FXCollections;

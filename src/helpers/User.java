@@ -1,4 +1,4 @@
-package controllers;
+package helpers;
 
 public class User {
     private String firstname;

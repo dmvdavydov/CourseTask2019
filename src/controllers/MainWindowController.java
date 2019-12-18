@@ -111,10 +111,35 @@ public class MainWindowController {
                 x[i] = i + 1;
                 y[i] = graphicList.get(i).getValue();
             }
-            Logic.mnk(x, y);
-            Logic.polynom2nd(x, y);
-            Logic.exponential(x, y);
-            System.out.println(Logic.lnA3 + " " + Logic.b3);
+            Thread firstThread = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    Logic.mnk(x, y);
+                }
+            });
+            firstThread.start();
+            Thread secondThread = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    Logic.polynom2nd(x, y);
+                }
+            });
+            secondThread.start();
+            Thread thirdThread = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    Logic.exponential(x, y);
+                }
+            });
+            thirdThread.start();
+
+            try {
+                firstThread.join();
+                secondThread.join();
+                thirdThread.join();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
 
             XYChart.Series series = new XYChart.Series();
             series.setName(comboBox.getValue());
@@ -129,7 +154,6 @@ public class MainWindowController {
             ObservableList<XYChart.Data> mnkData = FXCollections.observableArrayList();
             ObservableList<XYChart.Data> polynom2ndData = FXCollections.observableArrayList();
             ObservableList<XYChart.Data> exponentialData = FXCollections.observableArrayList();
-
 
             for (int i = 0; i < n; i++) {
                 graphicData.add(new XYChart.Data(graphicList.get(i).getDate(), graphicList.get(i).getValue()));
