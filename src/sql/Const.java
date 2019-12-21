@@ -16,5 +16,6 @@ public class Const {
     public static final String LOG_TABLE = "log";
     public static final String LOG_INFO = "info";
     public static final String LOG_USER_LOGIN = "user_login";
+    public static final String LOG_IDLOG = "idlog";
 
 }
