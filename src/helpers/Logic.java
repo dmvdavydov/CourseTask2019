@@ -47,15 +47,15 @@ public class Logic {
         }
         //Определитель
         det = sumX4 * sumX2 * n + 2 * sumX3 * sumX * sumX2 -
-                3 * sumX2 - sumX4 * 2 * sumX - 2 * sumX3 * n;
+                Math.pow(sumX2, 3) - sumX4 * Math.pow(sumX, 2) - Math.pow(sumX3, 2) * n;
 
         //Формулы Крамера
         a2 = (sumX2Y * sumX2 * n + sumXY * sumX * sumX2 + sumX3 * sumX * sumY -
-                2 * sumX2 * sumY - 2 * sumX * sumX2Y - n * sumX3 * sumXY) / det;
+                Math.pow(sumX2, 2) * sumY - Math.pow(sumX, 2) * sumX2Y - n * sumX3 * sumXY) / det;
         b2 = (sumX4 * sumXY * n + sumX2Y * sumX * sumX2 + sumX3 * sumX2 * sumY -
-                sumXY * 2 * sumX2 - sumX4 * sumY * sumX - sumX2Y * sumX3 * n) / det;
+                sumXY * Math.pow(sumX2, 2) - sumX4 * sumY * sumX - sumX2Y * sumX3 * n) / det;
         c2 = (sumX4 * sumX2 * sumY + sumX3 * sumXY * sumX2 + sumX3 * sumX * sumX2Y -
-                sumX2Y * 2 * sumX2 - sumX4 * sumXY * sumX - 2 * sumX3 * sumY) / det;
+                sumX2Y * Math.pow(sumX2, 2) - sumX4 * sumXY * sumX - Math.pow(sumX3, 2) * sumY) / det;
     }
 
     //Подсчёт значений

@@ -144,7 +144,7 @@ public class MainWindowController {
             XYChart.Series series = new XYChart.Series();
             series.setName(comboBox.getValue());
             XYChart.Series mnkSeries = new XYChart.Series();
-            mnkSeries.setName("least square");
+            mnkSeries.setName("linear graphic");
             XYChart.Series polynom2ndSeries = new XYChart.Series();
             polynom2ndSeries.setName("nonlinear graphic");
             XYChart.Series exponentialSeries = new XYChart.Series();
