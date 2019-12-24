@@ -146,7 +146,7 @@ public class MainWindowController {
             XYChart.Series mnkSeries = new XYChart.Series();
             mnkSeries.setName("least square");
             XYChart.Series polynom2ndSeries = new XYChart.Series();
-            mnkSeries.setName("nonlinear graphic");
+            polynom2ndSeries.setName("nonlinear graphic");
             XYChart.Series exponentialSeries = new XYChart.Series();
             exponentialSeries.setName("exponential graphic");
 
